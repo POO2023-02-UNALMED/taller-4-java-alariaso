@@ -3,12 +3,17 @@ package classroom;
 public class Persona {
 
     final long cedula;
+    static long ultimaCedula = 0;
     String nombre;
     static int totalPersonas;
     
     static {
         totalPersonas = 0;
-        cedula = 3;
+    }
+
+    public Persona() {
+        cedula = ultimaCedula++;
+        totalPersonas++;
     }
 
     public Persona(long cedula, String nombre) {
@@ -30,6 +35,7 @@ public class Persona {
     }
 
     public Persona(String nombre) {
+        cedula = ultimaCedula++;
         this.nombre = "";
         totalPersonas++;
     }
